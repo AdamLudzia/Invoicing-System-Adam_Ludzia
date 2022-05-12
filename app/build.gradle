@@ -49,3 +49,23 @@ checkstyle {
     maxWarnings = 0
     maxErrors = 0
 }
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.7
+            }
+        }
+    }
+}
+
+test{
+    finalizedBy jacocoTestReport
+    finalizedBy jacocoTestCoverageVerification
+}
+
+jacocoTestReport{
+    dependsOn test
+}
+
